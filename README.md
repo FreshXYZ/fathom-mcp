@@ -16,38 +16,6 @@ MCP server for [Fathom AI](https://fathom.video) — search meetings, get transc
 
 ## Setup for Claude Desktop / Cowork
 
-### 1. Clone and install
-
-Open Terminal and run:
-
-```bash
-git clone https://github.com/FreshXYZ/fathom-mcp.git
-cd fathom-mcp
-npm install
-```
-
-### 2. Find your Node.js path
-
-Run this in Terminal and copy the output:
-
-```bash
-which node
-```
-
-It will print something like `/usr/local/bin/node` or `/opt/homebrew/bin/node`.
-
-### 3. Find your fathom-mcp path
-
-Run this in Terminal from inside the cloned folder:
-
-```bash
-pwd
-```
-
-It will print something like `/Users/yourname/fathom-mcp`.
-
-### 4. Add to Claude Desktop
-
 1. Open Claude Desktop
 2. Go to **Settings** → **Developer** → **Edit Config**
 3. This opens `claude_desktop_config.json`. Add the `mcpServers` block:
@@ -56,8 +24,8 @@ It will print something like `/Users/yourname/fathom-mcp`.
 {
   "mcpServers": {
     "fathom": {
-      "command": "/YOUR/NODE/PATH/node",
-      "args": ["/YOUR/FATHOM-MCP/PATH/src/index.js"],
+      "command": "npx",
+      "args": ["@c20020207/fathom-mcp"],
       "env": {
         "FATHOM_API_KEY": "your-api-key-here"
       }
@@ -66,28 +34,17 @@ It will print something like `/Users/yourname/fathom-mcp`.
 }
 ```
 
-Replace:
-- `/YOUR/NODE/PATH/node` with the output from step 2
-- `/YOUR/FATHOM-MCP/PATH` with the output from step 3
-- `your-api-key-here` with your Fathom API key from above
+Replace `your-api-key-here` with your Fathom API key.
 
 > **Note:** If the file already has content, merge the `mcpServers` block into the existing JSON (don't replace the whole file).
 
-### 5. Restart Claude Desktop
-
-Quit and reopen Claude Desktop. You should see the Fathom tools available.
-
----
+4. Restart Claude Desktop. You should see the Fathom tools available.
 
 ## Setup for Claude Code (CLI)
 
 ```bash
 claude mcp add fathom -e FATHOM_API_KEY=your-api-key-here -- npx @c20020207/fathom-mcp
 ```
-
-No cloning needed — `npx` handles it automatically.
-
----
 
 ## Tools
 
