@@ -1,13 +1,18 @@
 {
-  "name": "fathom-mcp",
+  "name": "@c20020207/fathom-mcp",
   "version": "1.0.0",
   "description": "MCP server for Fathom AI - search meetings, get transcripts and summaries",
   "type": "module",
   "main": "src/index.js",
+  "bin": {
+    "fathom-mcp": "src/index.js"
+  },
   "scripts": {
     "start": "node src/index.js",
     "dev": "node --watch src/index.js"
   },
+  "keywords": ["mcp", "fathom", "ai", "meetings", "transcripts"],
+  "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1"
   }

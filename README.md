@@ -8,21 +8,13 @@ MCP server for [Fathom AI](https://fathom.video) — search meetings, get transc
 
 Go to [Fathom settings](https://fathom.video/settings) → API Access → generate a key.
 
-### 2. Clone and install
+### 2. Add to Claude Code
 
 ```bash
-git clone git@github.com:FreshXYZ/fathom-mcp.git
-cd fathom-mcp
-npm install
+claude mcp add fathom -e FATHOM_API_KEY=your-key-here -- npx @c20020207/fathom-mcp
 ```
 
-### 3. Add to Claude Code
-
-```bash
-claude mcp add fathom -e FATHOM_API_KEY=your-key-here -- node /path/to/fathom-mcp/src/index.js
-```
-
-Restart Claude Code. The tools will be available immediately.
+That's it. Restart Claude Code and the tools are available.
 
 ## Tools
 
